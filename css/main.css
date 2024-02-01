@@ -1,0 +1,62 @@
+*{
+    margin:0;
+    font-family:'JetBrains Mono',monospace;
+}
+
+body{
+    background-image: url("../images/Jungle.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style: none;
+}
+
+header{
+    display:flex;
+    align-items: center;
+    background-color: #1D1D1D;
+    height: 5rem;
+    padding:0 5rem;
+}
+
+.navigation{
+    margin:auto
+}
+
+.navigation ul{
+    display:flex;
+    flex-direction: row;
+}
+
+.navigation ul li{
+    margin-right:3rem;
+}
+
+.navigation ul li a{
+    display: block;
+    color:#D9D9D9;
+    font-size:14px;
+    font-weight: 500;
+    padding:7px 0;
+    border-bottom:2px solid #D9D9D9;
+}
+
+.login-btn{
+    display: block;
+    color:#D9D9D9;
+    font-size:14px;
+    font-weight: 500;
+    padding:10px;
+    border:2px solid #D9D9D9;
+}
+
+.login-btn:hover{
+    color:#1D1D1D;
+    background-color: #D9D9D9;
+}
