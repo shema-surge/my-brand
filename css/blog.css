@@ -1,0 +1,143 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1rem 4rem;
+    background-color: var(--dark);
+}
+
+.profileContainer{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+
+.profileContainer img{
+    height:40px;
+    width:40px;
+}
+
+.profileContainer p{
+    font-size: 14px;
+    font-weight: 800;
+    color:var(--light)
+}
+
+.searchContainer{
+    width:30%;
+}
+
+.searchContainer input{
+    border:0;
+    padding:10px;
+    width:100%;
+}
+
+.postContainer{
+    width:50%;
+    margin:2rem auto
+}
+
+.post a,.post p{
+    display: block;
+    margin-bottom:1rem;
+}
+
+.post p{
+    color:var(--light)
+}
+
+.postTitle{
+    font-size:20px;
+    font-weight:700;
+    color:var(--light)
+}
+
+.postTitle:hover{
+    text-decoration:underline;
+}
+
+.postReadMore{
+    color:rgb(7, 137, 224);
+}
+
+.stats{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats div{
+    display:flex;
+    align-items: center;
+    gap:7px
+}
+
+.controlsContainer{
+    width:70%;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin:3rem auto;
+}
+
+.controlsContainer h1{
+    color:var(--light);
+    font-size:20px;
+}
+
+#responsiveSearch{
+    display: none;
+}
+
+.sortControls{
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+
+.sortControls p{
+    color:var(--light)
+}
+
+.sortControls select{
+    color:var(--light);
+    background-color: #333333;
+    padding:7px;
+    border:0;
+    border-radius:0
+}
+
+@media only screen and (max-width:700px){
+    .searchContainer{
+        display: none;
+    }
+
+    .profileContainer p{
+        display: none;
+    }
+
+    .controlsContainer{
+        width:80%;
+        flex-direction: column;
+        gap:2rem;
+    }
+
+    .controlsContainer h1{
+        display: none;
+    }
+
+    #responsiveSearch{
+        display: block;
+        width:100%;
+    }
+
+    .sortControls{
+        align-self: flex-end;
+    }
+
+    .postContainer{
+        width:80%;
+    }
+
+}

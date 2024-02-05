@@ -1,12 +1,22 @@
 *{
+    padding:0;
     margin:0;
     font-family:'JetBrains Mono',monospace;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
-    background-image: url("../images/Jungle.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: #1D1D1D;
+}
+
+/* Primary colors */
+
+:root{
+    --light:#D9D9D9;
+    --dark:#1D1D1D;
 }
 
 a{
@@ -17,10 +27,11 @@ ul{
     list-style: none;
 }
 
+/* Header Styles */
+
 header{
     display:flex;
     align-items: center;
-    background-color: #1D1D1D;
     height: 5rem;
     padding:0 5rem;
 }
@@ -40,23 +51,43 @@ header{
 
 .navigation ul li a{
     display: block;
-    color:#D9D9D9;
+    color:var(--light);
     font-size:14px;
     font-weight: 500;
     padding:7px 0;
-    border-bottom:2px solid #D9D9D9;
 }
 
-.login-btn{
-    display: block;
-    color:#D9D9D9;
+.navigation ul li a div{
+    height:4px;
+    width:15px;
+    background-color:#bdbdbd;
+    margin-top:5px;
+    transition:width 500ms;
+}
+
+/* Back button */
+
+.backBtn{
+    display:flex;
+    align-items: center;
+    gap:10px;
+    color:var(--light);
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* global button */
+
+.btn{
+    color:var(--light);
     font-size:14px;
     font-weight: 500;
-    padding:10px;
-    border:2px solid #D9D9D9;
+    padding:10px 15px;
+    border:2px solid var(--light);
 }
 
-.login-btn:hover{
-    color:#1D1D1D;
-    background-color: #D9D9D9;
+.btn:hover{
+    color:var(--dark);
+    background-color: var(--light);
 }

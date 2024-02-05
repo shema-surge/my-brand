@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/blog.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <link rel="stylesheet" href="./css/messages.css">
+  </head>
+  <body>
+    <header>
+      <div class="searchContainer">
+        <input type="text" placeholder="Search posts">
+      </div>
+      <nav class="navigation">
+        <ul>
+            <li><a href="#">Posts</a></li>
+            <li><a href="#">Messages</a></li>
+        </ul>
+      </nav>
+      <div class="profileContainer">
+        <img src="./images/User-Profile-PNG-Image 1.png" alt="">
+        <p>Shema Serge</p>
+      </div>
+    </header>
+    <main>
+      <div class="controlsContainer">
+        <h1>Messages</h1>
+        <div id="responsiveSearch" class="searchContainer">
+          <input type="text" placeholder="Search posts">
+        </div>
+        <div class="sortControls">
+          <p>Sort</p>
+          <select name="posts" id="posts">
+            <option value="recent">Most Recent</option>
+            <option value="likes">Most Viewed</option>
+            <option value="views">Most liked</option>
+            <option value="comments">Most Comments</option>
+          </select>
+        </div>
+      </div>
+        <div class="messages">
+            <div class="message">
+                <div class="messageDetails">
+                    <div class="messageData">
+                        <p>Name: Musoni Frank</p>
+                        <p>Email: musonfrank@gmail.com</p>
+                    </div>
+                    <div class="messageDate">
+                        Date: Jan,30,2024 1:38PM
+                    </div>
+                    <div class="actionButtons">
+                        <a href="#">Delete</a>
+                    </div>
+                </div>
+                <div class="messagePreview">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+  </body>
+  <script src="https://kit.fontawesome.com/3f2aa35973.js" crossorigin="anonymous"></script>
+</html>
