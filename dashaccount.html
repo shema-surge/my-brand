@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/components/mobileHeader.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/account.css" />
+  </head>
+  <body>
+    <div class="mobileHeader">
+      <div class="backBtn">
+        <i class="fa-solid fa-xmark"></i>
+        <p>close</p>
+      </div>
+      <nav class="mobileNavigation">
+        <ul>
+          <li>
+            <a class="nav-item" href="./index.html#aboutSection"
+              >About
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#projectsSection"
+              >My Work
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./blog.html"
+              >Blog
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#contactSection"
+              >Contact Me
+              <div></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <div id="mobile-screen-profile" class="profileContainer">
+        <div>
+          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
+          <p>Shema Serge</p>
+        </div>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="mobileProfileOptions">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./blog.html">Log out</a>
+      </div>
+    </div>
+    <header>
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a class="nav-item" href="./index.html#aboutSection"
+              >About
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#projectsSection"
+              >My Work
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./blog.html"
+              >Blog
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#contactSection"
+              >Contact Me
+              <div></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="profileOptions">
+        <a href="#">Dashboard</a>
+        <a href="#">Logout</a>
+      </div>
+      <div id="wide-screen-profile" class="profileContainer">
+        <div>
+          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
+          <p>Shema Serge</p>
+        </div>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </header>
+    <main>
+      <select class="mobileSectionContainer" name="" id="">
+        <option value="Posts">Posts (14)</option>
+        <option value="Messages">Messages (121)</option>
+        <option value="Users">Users (234)</option>
+        <option value="Notifications">Notifications (121)</option>
+        <option value="Account">Account</option>
+      </select>
+      <div class="sectionContainer">
+        <a href="#">
+          <div class="section active">
+            <p class="sectionName">Posts</p>
+            <p class="sectionCount">121</p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="section">
+            <p class="sectionName">Messages</p>
+            <p class="sectionCount">142</p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="section">
+            <p class="sectionName">Users</p>
+            <p class="sectionCount">123</p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="section">
+            <p class="sectionName">Notifications</p>
+            <p class="sectionCount">12</p>
+          </div>
+        </a>
+        <a href="#">
+          <div class="section">
+            <p class="sectionName">Account</p>
+          </div>
+        </a>
+      </div>
+      <div class="mainContent">
+        <div class="profileInfoContainer">
+          <p>Profile</p>
+          <form action="" class="profileInfoForm">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Shema Serge"/>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="shemaserge@gmail.com"/>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Shema Serge"/>
+            <label for="User-Profile-PNG-Image">Profile Image:</label>
+            <div class="changeProfileImage">
+              <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
+              <input type="file" name="image" id="image" />
+            </div>
+            <button class="btn" type="submit">Save Profile Information</button>
+          </form>
+          <p>Password</p>
+          <form action="" class="changePasswordForm">
+            <label for="currentPassword">Current Password:</label>
+            <input
+              type="password"
+              name="currentPassword"
+              id="currentPassword"
+              placeholder="Enter Password"
+            />
+            <label for="newPassword">New Password:</label>
+            <input type="password" name="newPassword" id="newPassword" placeholder="Enter Password"/>
+            <label for="confirmNewPassword">Confirm New Password:</label>
+            <input
+              type="password"
+              name="confirmNewPassword"
+              id="confirmNewPassword"
+              placeholder="Enter Password"
+            />
+            <button type="submit" class="btn">Change Password</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/3f2aa35973.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/posts.js"></script>
+</html>

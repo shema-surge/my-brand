@@ -1,23 +1,7 @@
-.messages{
-    width:70%;
-    margin:auto;
-    color:var(--light)
-}
-
 .message{
-    padding:1rem;
-}
-
-.messageDetails{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-}
-
-.messageData,.messageDate{
-    font-size: 16px;
-    font-weight: 600;
+    position:relative;
+    padding:1rem 1rem;
+    border-radius: 5px;
 }
 
 .message:hover{
@@ -25,11 +9,57 @@
     cursor: pointer;
 }
 
-@media only screen  and (max-width:700px){
-    .messageDetails{
-        flex-direction: column;
-        width: 100%;
-    }
+.messageTopContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.messageData>div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color:var(--light);
+}
+
+.timeSent{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.messageProfile{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.messageProfile>p{
+    font-size:15px;
+    font-weight: 600;
+}
+
+.senderEmail{
+    color:var(--light);
+    margin:1rem 0;
+    font-size: 15px;
+}
+
+.senderEmail span{
+    font-weight: 600;
+}
+
+.messageOptions{
+    top:55px;
+    right:15px;
+}
+
+.messageContent{
+    font-size: 15px;
+    color:var(--light)
+}
+
+
+
+@media only screen  and (max-width:700px){
 
 }

@@ -5,23 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post</title>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/blog.css" />
+    <link rel="stylesheet" href="./css/components/mobileHeader.css" />
     <link rel="stylesheet" href="./css/post.css" />
   </head>
   <body>
-    <header>
+    <div class="mobileHeader">
       <div class="backBtn">
-        <i class="fa-solid fa-arrow-left"></i>
-        <p>Back</p>
+        <i class="fa-solid fa-xmark"></i>
+        <p>close</p>
       </div>
-      <div class="profileContainer">
-        <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-        <p>Shema Serge</p>
+      <nav class="mobileNavigation">
+        <ul>
+          <li>
+            <a class="nav-item" href="./index.html#aboutSection"
+              >About
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#projectsSection"
+              >My Work
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./blog.html"
+              >Blog
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#contactSection"
+              >Contact Me
+              <div></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="mobile-screen-profile" class="profileContainer">
+        <div>
+          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
+          <p>Shema Serge</p>
+        </div>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="mobileProfileOptions">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./blog.html">Log out</a>
+      </div>
+    </div>
+    <header>
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a class="nav-item" href="./index.html#aboutSection"
+              >About
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#projectsSection"
+              >My Work
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./blog.html"
+              >Blog
+              <div></div
+            ></a>
+          </li>
+          <li>
+            <a class="nav-item" href="./index.html#contactSection"
+              >Contact Me
+              <div></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="profileOptions">
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./blog.html">Logout</a>
+      </div>
+      <div id="wide-screen-profile" class="profileContainer">
+        <div>
+          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
+          <p>Shema Serge</p>
+        </div>
+        <i class="fa-solid fa-chevron-down"></i>
       </div>
     </header>
     <main>
       <div class="postContainer">
         <h1>Finally Master Next.js's Most Complex Feature - Caching</h1>
+        <p class="postDate">Jan 2, 20:04 PM</p>
         <p>
           Next.js is an amazing framework that makes writing complex server
           rendered React apps much easier, but there is one huge problem.
@@ -61,33 +144,42 @@
       </div>
       <div class="commentSection">
         <div class="commentContainer">
-            <p>Comments (6)</p>
-            <div class="commentForm">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Add your comment"></textarea>
-                <button class="btn">Submit</button>
-            </div>
+          <p>Comments (6)</p>
+          <div class="commentForm">
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Add your comment"
+            ></textarea>
+            <button class="btn">Submit</button>
+          </div>
         </div>
         <div class="comments">
-            <div class="comment">
-                <div class="commentInfo">
-                    <div class="profileContainer">
-                        <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-                        <p>jackTheCoder</p>
-                    </div>
-                    <p>Jan 2, 20:04 PM</p>
-                </div>
-                <p>Сongratulations 🥳! Your article hit the top posts for the week - Keep it up 👍</p>
-                <div class="stats">
-                    <div>
-                      <i class="fa-regular fa-heart"></i>
-                      <p>6 likes</p>
-                    </div>
-                    <div>
-                      <i class="fa-regular fa-message"></i>
-                      <p>Reply</p>
-                    </div>
-                </div>
+          <div class="comment">
+            <div class="commentInfo">
+              <div class="profile">
+                <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
+                <p>jackTheCoder</p>
+              </div>
+              <p>Jan 2, 20:04 PM</p>
             </div>
+            <p>
+              Сongratulations 🥳! Your article hit the top posts for the week -
+              Keep it up 👍
+            </p>
+            <div class="stats">
+              <div>
+                <i class="fa-regular fa-heart"></i>
+                <p>6 likes</p>
+              </div>
+              <div>
+                <i class="fa-regular fa-message"></i>
+                <p>Reply</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -96,4 +188,5 @@
     src="https://kit.fontawesome.com/3f2aa35973.js"
     crossorigin="anonymous"
   ></script>
+  <script src="./js/main.js"></script>
 </html>

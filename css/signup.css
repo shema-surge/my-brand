@@ -5,7 +5,10 @@ html,body{
 body{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    background: url("../images/Jungle.jpg");
+    backdrop-filter: brightness(50%);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .loginContainer{
@@ -24,7 +27,7 @@ body{
     font-size:18px;
     font-weight: 600;
     align-self: center;
-    margin:1rem 0;
+    margin:2.5rem 0;
 }
 
 .form{
