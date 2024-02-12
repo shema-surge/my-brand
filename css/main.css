@@ -28,12 +28,14 @@ ul{
 /* Header Styles */
 
 header{
+    position: sticky;
+    top:0;
     display:flex;
     align-items: center;
     height: 5rem;
     padding:0 5rem;
     background-color: var(--dark);
-    position: relative; /* for the profileOptions div to be position:absolute relative to header */
+    /*position: relative; /* for the profileOptions div to be position:absolute relative to header */
 }
 
 .navigation{
@@ -67,11 +69,12 @@ header{
 }
 
 .navigation .active{
-    color:#8d8d8d
+    color: #747474;
 }
 
 .navigation .active div{
-    background-color:#8d8d8d
+    width:100% !important;
+    background-color:#747474;
 }
 
 @media (max-width:700px){
@@ -212,6 +215,8 @@ header{
 /* mobile header styles */
 
 .mobileHeader{
+    position: sticky;
+    top:0;
     display: none;
     flex-direction: column;
     gap: 2rem;
@@ -244,6 +249,15 @@ header{
     background-color:#bdbdbd;
     margin-top:5px;
     transition:width 500ms;
+}
+
+.mobileNavigation .active{
+    color: #747474;
+}
+
+.mobileNavigation .active div{
+    width:100% !important;
+    background-color:#747474;
 }
 
 .mobileHeader>a{
@@ -375,15 +389,19 @@ header{
 /* sections menu links */
 
 .sectionContainer{
-    padding:1rem 10px;
+    padding:1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
 }
 
 .section{
+    width:70%;
+    margin:auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding:12px 10px;
-    margin-bottom: 5px;
     border-radius:5px;
     color:var(--light);
 }
@@ -397,12 +415,12 @@ header{
 }
 
 .section .sectionName{
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
 }
 
 .section .sectionCount{
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     padding:5px 10px;
     background-color: #5a5a5a;

@@ -8,8 +8,8 @@
 
 .profileInfoContainer p{
     color:var(--light);
-    font-size:20px;
-    font-weight: 600;
+    font-size:22px;
+    font-weight: 800;
 }
 
 .profileInfoContainer form{
@@ -19,8 +19,8 @@
 
 .profileInfoContainer label{
     color:var(--light);
-    font-size:14px;
-    font-weight:500;
+    font-size:13px;
+    font-weight:600;
     margin-bottom: 1rem;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .profileInfoContainer input[type="text"],.profileInfoContainer input[type="email"],.profileInfoContainer input[type="password"]{
-    padding:15px;
+    padding:13px;
     box-sizing: border-box;
     border:0px;
     border-radius: 5px;
@@ -46,7 +46,7 @@
     padding:10px;
     border:0;
     border-radius:5px;
-    font-size:15px;
+    font-size:13px;
     font-weight: 600;
     color:var(--light);
     background-color: #434343;
@@ -55,15 +55,23 @@
 
 .changeProfileImage input{
     color:var(--light);
-    font-size:15px;
+    font-size:13px;
     font-weight: 600;
 }
 
 
 .profileInfoContainer button{
     background-color: transparent;
+    font-size:13px;
     width:fit-content;
     margin:2rem 0;
+}
+
+.separator{
+    background-color: #333333;
+    height:5px;
+    border:0;
+    border-radius: 5px;
 }
 
 @media (max-width:700px){
