@@ -146,11 +146,18 @@
         <p>Feel free to contact me by submitting you message below and I’ll get back to you as soon as I can :)</p>
         <form action="" class="contactForm form">
           <label for="name">Name</label>
-          <input type="text" id="name" class="textInput" placeholder="Enter your name">
+          <div class="inputContainer">
+            <input type="text" id="name" class="textInput" placeholder="Enter your name">
+          </div>
           <label for="email">Email</label>
-          <input type="email" id="email" class="textInput" placeholder="Enter your email">
+          <div class="inputContainer">
+            <input type="email" id="email" class="textInput" placeholder="Enter your email">
+          </div>
           <label for="message">Message</label>
-          <textarea name="message" id="message" cols="30" rows="10" class="textInput" placeholder="Enter your message"></textarea>
+          <div class="inputContainer">
+            <textarea name="message" id="message" cols="30" rows="10" class="textInput" placeholder="Enter your message"></textarea>
+          </div>
+
           <button type="submit" class="btn">Submit</button>
         </form>
       </div>

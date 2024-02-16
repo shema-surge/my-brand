@@ -7,8 +7,7 @@ body{
     flex-direction: column;
     background: url("../images/Jungle.jpg");
     backdrop-filter: brightness(50%);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size:cover;
 }
 
 .loginContainer{
@@ -27,7 +26,7 @@ body{
     font-size:18px;
     font-weight: 600;
     align-self: center;
-    margin:2.5rem 0;
+    margin:1rem 0;
 }
 
 .form{
@@ -42,9 +41,7 @@ body{
     margin-bottom: 2rem;
 }
 
-
-
 .form button{
-    margin:2rem 0;
+    margin:1rem 0;
 }
 
