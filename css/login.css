@@ -28,7 +28,7 @@ body{
 
 .loginContainer h1{
     color:var(--lighter);
-    font-size:18px;
+    font-size:15px;
     font-weight: 600;
     align-self: center;
     margin:3rem 0;
@@ -41,7 +41,7 @@ body{
 
 form a{
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--lighter);
 }
 
@@ -51,8 +51,8 @@ form button{
 
 .signupLink{
     color:var(--lighter);
-    font-size: 14px;
-    font-weight: 800;
+    font-size: 12px;
+    font-weight: 600;
     align-self: center;
     margin-bottom: 2rem;
 }

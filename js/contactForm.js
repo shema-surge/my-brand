@@ -2,10 +2,8 @@ const nameValidationErr=document.getElementById("nameValidationErr")
 const nameInput=document.getElementById("nameInput")
 const emailValidationErr=document.getElementById("emailValidationErr")
 const emailInput=document.getElementById("emailInput")
-const passwdValidationErr=document.getElementById("passwdValidationErr")
-const passwdInput=document.getElementById("passwdInput")
-const verifyPasswdValidationErr=document.getElementById("verifyPasswdValidationErr")
-const verifyPasswdInput=document.getElementById("verifyPasswdInput")
+const messageValidationErr=document.getElementById("messageValidationErr")
+const messageInput=document.getElementById("messageInput")
 const form=document.querySelector(".form")
 const errMessage=document.querySelector(".errMessage")
 
@@ -25,22 +23,17 @@ emailInput.addEventListener('keyup',(e)=>{
     emailValidationErr.textContent=validateEmail(emailInput.value)
 })
 
-passwdInput.addEventListener('keypress',(e)=>{
-    passwdValidationErr.textContent=validatePasswd(passwdInput.value)
+messageInput.addEventListener('keypress',(e)=>{
+    messageValidationErr.textContent=validateMessage(messageInput.value)
 })
 
-passwdInput.addEventListener('keyup',(e)=>{
-    passwdValidationErr.textContent=validatePasswd(passwdInput.value)
-})
-
-verifyPasswdInput.addEventListener('keyup',(e)=>{
-    verifyPasswdValidationErr.textContent=verifyPasswords(passwdInput.value,verifyPasswdInput.value)
+messageInput.addEventListener('keyup',(e)=>{
+    messageValidationErr.textContent=validateMessage(messageInput.value)
 })
 
 form.addEventListener("submit",(event)=>{
     event.preventDefault()
-
-    if(validateName(nameInput.value) || validateEmail(emailInput.value) || validatePasswd(passwdInput.value) || verifyPasswords(passwdInput.value,verifyPasswdInput.value)){
+    if(validateEmail(emailInput.value) || validateName(nameInput.value) || validateMessage(messageInput.value)){
         errMessage.style.display="block"
         errMessage.innerHTML="<p>Please fill the form as instructed.</p>"
     }else{

@@ -129,7 +129,7 @@ body{
     color: var(--light);
 }
 
-.contactSection p{
+.contactSection>p{
     width:40%;
     text-align: center;
     font-size: 14px;
