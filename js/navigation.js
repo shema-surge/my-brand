@@ -1,7 +1,5 @@
 const dashNavigation=document.querySelector("#dashNavigation")
 
-console.log(dashNavigation)
-
 dashNavigation.addEventListener('change',()=>{
     switch(dashNavigation.value){
         case "Posts":

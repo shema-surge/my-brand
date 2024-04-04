@@ -1,6 +1,13 @@
+.emptyMessage{
+    color:white;
+    font-size: 13px;
+    margin:2rem auto;
+    color:var(--light)
+}
+
 .message{
     position:relative;
-    padding:1rem 1rem;
+    padding:1rem;
     border-radius: 5px;
 }
 
@@ -15,36 +22,33 @@
     align-items: center;
 }
 
-.messageData>div{
+#messageCloseBtn{
+    font-size: 18px;
+    color:white;
+    padding:5px;
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+.messageData{
     display: flex;
     align-items: center;
     gap: 1rem;
-    color:var(--light);
 }
 
-.timeSent{
+.messageData p{
+    color:var(--light);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.senderEmail,.messageSubject,.messageContent{
+    color:var(--light);
+    margin:10px 0;
     font-size: 13px;
-    font-weight: 600;
 }
 
-.messageProfile{
-    display: flex;
-    align-items: center;
-    gap:10px;
-}
-
-.messageProfile>p{
-    font-size:15px;
-    font-weight: 600;
-}
-
-.senderEmail{
-    color:var(--light);
-    margin:1rem 0;
-    font-size: 15px;
-}
-
-.senderEmail span{
+.senderEmail span,.messageSubject span{
     font-weight: 600;
 }
 
@@ -53,13 +57,39 @@
     right:15px;
 }
 
-.messageContent{
-    font-size: 15px;
-    color:var(--light)
+.messagePopup{
+    display:none;
+    position:absolute;
+    padding:1rem;
+    width:500px;
+    top:12rem;
+    left:50%;
+    margin-left:-250px;
+    background-color: var(--dark);
+    flex-direction: column;
+    border-radius: 5px;
+    z-index:6
+}
+
+#replyTextArea{
+    padding:10px;
+    color:var(--light);
+    background-color: var(--dark);
+    border-radius: 5px;
+    margin-bottom:10px
+}
+
+#replyBtn{
+    width: fit-content;
 }
 
 
 
 @media only screen  and (max-width:700px){
+
+    .messagePopup{
+        width:400px;
+        margin-left:-200px;
+    }
 
 }

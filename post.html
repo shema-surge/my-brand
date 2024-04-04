@@ -41,18 +41,6 @@
           </li>
         </ul>
       </nav>
-
-      <div id="mobile-screen-profile" class="profileContainer">
-        <div>
-          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-          <p>Shema Serge</p>
-        </div>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
-      <div class="mobileProfileOptions">
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./blog.html">Log out</a>
-      </div>
     </div>
     <header>
       <nav class="navigation">
@@ -88,104 +76,41 @@
         <div></div>
         <div></div>
       </div>
-      <div class="profileOptions">
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./blog.html">Logout</a>
-      </div>
-      <div id="wide-screen-profile" class="profileContainer">
-        <div>
-          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-          <p>Shema Serge</p>
-        </div>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
     </header>
     <main>
       <div class="postContainer">
-        <h1>Finally Master Next.js's Most Complex Feature - Caching</h1>
-        <p class="postDate">Jan 2, 20:04 PM</p>
-        <p>
-          Next.js is an amazing framework that makes writing complex server
-          rendered React apps much easier, but there is one huge problem.
-          Next.js’s caching mechanism is extremely complicated and can easily
-          lead to bugs in your code that are difficult to debug and fix. If you
-          don’t understand how Next.js’s caching mechanism works it feels like
-          you are constantly fighting Next.js instead of reaping the amazing
-          benefits of Next.js’s powerful caching. That is why in this article I
-          am going to break down exactly how every part of Next.js’s cache works
-          so you can stop fighting it and finally take advantage of its
-          incredible performance gains. Before we get started, here is an image
-          of how all the caches in Next.js interact with one another. I know
-          this is overwhelming, but by the end of this article you will
-          understand exactly what each step in this process does and how they
-          all interact.
-        </p>
-        <img src="./images/request-memo 1.png" alt="" />
-        <p>
-          Request Memoization is great for making your app more performant by
-          preventing duplicate fetch request, but when it comes to caching data
-          across requests/users it is useless. This is where the data cache
-          comes in. It is the last cache that is hit by Next.js before it
-          actually fetches your data from an API or database and is persistent
-          across multiple requests/users. Imagine we have a simple page that
-          queries an API to get guide data on a specific city
-        </p>
-        <div class="stats">
-          <div>
-            <i class="fa-regular fa-heart"></i>
-            <p>6 likes</p>
-          </div>
-          <div>
-            <i class="fa-regular fa-comment"></i>
-            <p>6 comments</p>
-          </div>
-        </div>
       </div>
       <div class="commentSection">
         <div class="commentContainer">
-          <p>Comments (6)</p>
+          <p>Comments:</p>
           <div class="commentForm">
             <textarea
               name=""
-              id=""
+              id="commentInput"
               cols="30"
               rows="10"
               placeholder="Add your comment"
             ></textarea>
-            <button class="btn">Submit</button>
+            <button id="commentBtn" class="btn">Submit</button>
           </div>
         </div>
         <div class="comments">
-          <div class="comment">
-            <div class="commentInfo">
-              <div class="profile">
-                <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-                <p>jackTheCoder</p>
-              </div>
-              <p>Jan 2, 20:04 PM</p>
-            </div>
-            <p>
-              Сongratulations 🥳! Your article hit the top posts for the week -
-              Keep it up 👍
-            </p>
-            <div class="stats">
-              <div>
-                <i class="fa-regular fa-heart"></i>
-                <p>6 likes</p>
-              </div>
-              <div>
-                <i class="fa-regular fa-message"></i>
-                <p>Reply</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </main>
+    <div class="popupDialog">
+      <p class="dialog">Hello</p>
+      <div class="dialogBtnContainer">
+        <a id="confirmBtn" href="#">Confirm</a>
+        <a id="cancelBtn" href="#">Cancel</a>
+      </div>
+    </div>
   </body>
   <script
     src="https://kit.fontawesome.com/3f2aa35973.js"
     crossorigin="anonymous"
   ></script>
+  <script src="./js/axios.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/post.js"></script>
 </html>

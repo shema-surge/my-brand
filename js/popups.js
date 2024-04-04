@@ -2,8 +2,6 @@ const moreOptionsBtn=document.querySelectorAll(".moreOptionsBtn")
 const options=document.querySelectorAll(".options")
 let currentActive=null
 
-
-
 moreOptionsBtn.forEach(btn=>{
     btn.addEventListener('click',(event)=>{
         let optionMenu=btn.nextElementSibling

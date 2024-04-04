@@ -20,21 +20,21 @@
         <h1>Log in</h1>
         <div class="errMessage">
         </div>
-        <form action="" class="form">
+        <form class="form">
             <label for="emailInput">Email</label>
             <div class="inputContainer">
-                <input type="email" id="emailInput" required>
+                <input type="email" name="email" id="emailInput" required>
                 <p id="emailValidationErr"></p>
             </div>
 
             <label for="passwdInput">Password</label>
             <div class="inputContainer">
-                <input type="password" id="passwdInput" 1required>
+                <input type="password" name="password" id="passwdInput" 1required>
                 <p id="passwdValidationErr"></p>
             </div>
 
             <a href="#">Forgot Password?</a>
-            <button type="submit" class="btn">Login</button>
+            <button type="button" id="loginBtn" class="btn">Login</button>
             <a class="signupLink" href="./signup.html">Create Account</a>
         </form>
     </div>

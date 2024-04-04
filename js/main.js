@@ -1,14 +1,14 @@
 const navItems = document.querySelectorAll('.nav-item')
 const menu = document.querySelector(".menu")
+
 const header = document.querySelector('header')
 const mobileHeader = document.querySelector('.mobileHeader')
+
 const closeBtn = document.querySelector('.backBtn')
+
 const navigation = document.querySelector(".navigation")
-const loginBtn = document.querySelector("#loginBtn")
-const wideScreenProfile = document.querySelector("#wide-screen-profile")
-const profileOptions = document.querySelector(".profileOptions")
-const mobileScreenProfile = document.querySelector("#mobile-screen-profile")
-const mobileProfileOptions = document.querySelector(".mobileProfileOptions")
+
+let token
 
 navItems.forEach(navItem => {
     navItem.addEventListener('mouseenter', () => {
@@ -17,7 +17,6 @@ navItems.forEach(navItem => {
     navItem.addEventListener('mouseleave', () => {
         navItem.children[0].style.width = '10px';
     })
-
     navItem.addEventListener('click', () => {
         mobileHeader.style.display = "none"
     })
@@ -25,21 +24,10 @@ navItems.forEach(navItem => {
 
 window.addEventListener('resize', () => {
     if (window.innerWidth >= 700) {
-        if(mobileHeader) mobileHeader.style.display = "none"
+        mobileHeader.style.display = "none"
         header.style.display = "flex"
-        console.log("Hello")
-    } else {
-        if(profileOptions) profileOptions.style.display = "none"
     }
 })
-
-if (wideScreenProfile && profileOptions) {
-    document.addEventListener('click', (event) => {
-        if (!wideScreenProfile.contains(event.target)) {
-            profileOptions.style.display = "none"
-        }
-    })
-}
 
 
 menu.addEventListener('click', () => {
@@ -52,25 +40,104 @@ closeBtn.addEventListener('click', () => {
     header.style.display = "flex"
 })
 
-if (wideScreenProfile && profileOptions) {
-    wideScreenProfile.addEventListener('click', () => {
-        if (profileOptions.style.display === "flex") {
-            profileOptions.style.display = "none"
-            return
-        }
-        profileOptions.style.display = "flex"
+try{
+    if (!document.cookie) throw new Error('Missing cookies, please login again')
+    token = document.cookie.split('=')[1]
+    if (!token) throw new Error('Invalid token')
+}catch(err){
+    console.log(err)
+}
+
+function loadProfile(){
+
+    axios.get('http://172.21.126.12:4500/users/current',{
+    headers:{
+        'authorization':`Bearer ${token}`
+    }})
+    .then(res=>{
+
+        if(res.status!==200) throw new Error(res.data.message)
+
+        const wideScreenProfile = document.createElement('div')
+        wideScreenProfile.classList.add('profileContainer')
+        wideScreenProfile.innerHTML=`
+        <div>
+            <img src="${res.data.user.profileImg}" alt="" />
+            <p>${res.data.user.name}</p>
+        </div>
+        <i class="fa-solid fa-chevron-down"></i>
+        `
+
+        const mobileScreenProfile = document.createElement('div')
+        mobileScreenProfile.classList.add('profileContainer')
+        mobileScreenProfile.innerHTML=`
+        <div>
+            <img src="${res.data.user.profileImg}" alt="" />
+            <p>${res.data.user.name}</p>
+        </div>
+        <i class="fa-solid fa-chevron-down"></i>
+        `
+
+        const profileOptions = document.createElement('div')
+        profileOptions.classList.add("profileOptions")
+        profileOptions.innerHTML=`
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./blog.html">Log out</a>
+        `
+
+        const mobileProfileOptions = document.createElement('div')
+        mobileProfileOptions.classList.add("mobileProfileOptions")
+        mobileProfileOptions.innerHTML=`
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./blog.html">Log out</a>
+        `
+
+
+        wideScreenProfile.addEventListener('click', () => {
+            if (profileOptions.style.display === "flex") {
+                profileOptions.style.display = "none"
+                return
+            }
+            profileOptions.style.display = "flex"
+        })
+
+        mobileScreenProfile.addEventListener('click', () => {
+            if (mobileProfileOptions.style.display === "flex") {
+                mobileProfileOptions.style.display = "none"
+                return
+            }
+            mobileProfileOptions.style.display = "flex"
+        })
+
+        document.addEventListener('click', (event) => {
+            if (!wideScreenProfile.contains(event.target)) {
+                profileOptions.style.display = "none"
+            }
+        })
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 700) {
+                profileOptions.style.display="none"
+            }
+        })
+
+        header.appendChild(wideScreenProfile)
+        header.appendChild(profileOptions)
+
+        mobileHeader.appendChild(mobileScreenProfile)
+        mobileHeader.appendChild(mobileProfileOptions)
+    })
+    .catch(err=>{
+        const loginBtn=document.createElement('a')
+        loginBtn.classList.add('btn')
+        loginBtn.setAttribute('href','/login.html')
+        loginBtn.innerText='Login'
+        header.appendChild(loginBtn)
+        mobileHeader.appendChild(loginBtn)
     })
 }
 
-if (mobileScreenProfile && mobileProfileOptions) {
-    mobileScreenProfile.addEventListener('click', () => {
-        if (mobileProfileOptions.style.display === "flex") {
-            mobileProfileOptions.style.display = "none"
-            return
-        }
-        mobileProfileOptions.style.display = "flex"
-    })
-}
+loadProfile()
 
 
 

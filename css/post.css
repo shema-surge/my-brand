@@ -50,27 +50,53 @@ body{
 }
 
 .comment{
-    font-size: 14px;
+    padding:1rem 1rem;
     font-weight: 500;
+    border-radius: 5px;
+}
+
+.comment:hover{
+    background-color: var(--dark);
+}
+
+.commentTopBar{
+    display: flex;
+    justify-content: space-between;
+    position:relative
 }
 
 .commentInfo{
     display:flex;
-    align-items: center;
-    gap:1rem;
-    margin:1rem 0;
+    flex-direction: column;
+    gap:10px;
+}
+
+.commentOptions{
+    top:45px;
+    right:0px;
 }
 
 .profile{
     display: flex;
     align-items: center;
+    font-size: 14px;
+    gap:5px;
 }
 
-.comment>p{
-    margin:1rem 0;
+.profile img{
+    width:30px;
 }
 
-.comment>div.stats{
+.commentDate{
+    font-size:12px
+}
+
+.commentContent{
+    font-size: 14px;
+    margin:1.5rem 0;
+}
+
+.comment .stats{
     gap:2rem;
     justify-content: flex-start;
 }

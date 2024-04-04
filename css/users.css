@@ -4,13 +4,23 @@
     gap:1rem;
 }
 
+
 .user{
-    position:relative;
-    display: flex;
-    justify-content: space-between;
-    padding:1rem 1rem;
+    padding:1rem;
     border-radius: 5px;
+}
+
+.userData{
+    display: flex;
+    justify-content: space-around;
+}
+
+.user:hover{
     background-color: var(--dark);
+}
+
+.userData>img{
+    height: 50px;
 }
 
 .userInfo div{
@@ -20,7 +30,7 @@
 
 .userInfo div p{
     color:var(--light);
-    font-size:15px;
+    font-size:13px;
 }
 
 .userInfo div p:first-child{
@@ -28,9 +38,28 @@
     font-weight:600;
 }
 
-.userOptions{
-    top:55px;
-    right:15px;
+.actionButtons{
+    display:flex;
+    justify-content: space-evenly;
+    margin:1rem 0;
+}
+
+.actionButtons a{
+    padding:10px 0;
+    width:100px;
+    text-align: center;
+    color:var(--light);
+    font-size:12px;
+    font-weight: 500;
+    border-radius:5px;
+}
+
+.changeRoleBtn{
+    background-color: rgb(2, 82, 72);
+}
+
+.deleteBtn{
+    background-color: rgb(154, 0, 0);
 }
 
 @media (max-width:1020px){

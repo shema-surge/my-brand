@@ -7,17 +7,26 @@ body{
     margin:2rem auto;
     display: flex;
     flex-direction: column;
-    gap:3rem;
+    gap:10px;
 }
 
-.post>a,.post>p{
+.post{
+    padding:1rem;
+    border-radius:5px;
+}
+
+.post:hover{
+    background-color: var(--dark);
+}
+
+.postTitle,.postReadMore{
     display: block;
     margin-bottom:1rem;
     color:var(--light)
 }
 
 .postTitle{
-    font-size:20px;
+    font-size:17px;
     font-weight:700;
 }
 
@@ -25,7 +34,7 @@ body{
     text-decoration:underline;
 }
 
-.post>.postReadMore{
+.postReadMore{
     font-size: 15px;
     font-weight: 600;
     color:rgb(7, 137, 224);

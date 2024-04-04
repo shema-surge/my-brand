@@ -35,6 +35,7 @@ header{
     height: 5rem;
     padding:0 5rem;
     background-color: var(--dark);
+    z-index:5
     /*position: relative; /* for the profileOptions div to be position:absolute relative to header */
 }
 
@@ -223,6 +224,7 @@ header{
     padding: 3rem;
     height: 100vh;
     background-color: var(--dark);
+    z-index: 7;
 }
 
 .mobileNavigation ul{
@@ -389,6 +391,11 @@ header{
     color:#FF4500
 }
 
+.emptyMessage p{
+    font-size: 12px;
+    color:var(--light)
+}
+
 @media only screen and (max-width:700px){
     .form{
         width:70%;
@@ -407,8 +414,9 @@ header{
     display: flex;
     align-items: center;
     gap:10px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
+    cursor:pointer;
 }
 
 /* sections menu links */
@@ -527,4 +535,127 @@ footer{
         font-size: 12px;
     }
 
+}
+
+/* commmon styles for ellipsis button */
+
+.moreOptionsBtn{
+    padding:5px;
+    height:fit-content;
+    font-size: 25px;
+    border-radius:5px;
+    color:var(--light)
+}
+
+.moreOptionsBtn:hover{
+    background-color: #333333;
+}
+
+/* common styes for popup options */
+
+.options{
+    position:absolute;
+    z-index:2;
+    display: none;
+    flex-direction: column;
+    padding:12px;
+    border-radius: 5px;
+    background-color: #181818;
+}
+
+.options a{
+    color:var(--light);
+    font-size: 13px;
+    font-weight: 600;
+    padding:12px;
+    border-radius: 5px;
+}
+
+.options a:hover{
+    background-color: #333333;
+}
+
+/* pop dialog box */
+
+.popupDialog{
+    position:absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding:2rem 0;
+    width:400px;
+    background-color: var(--dark);
+    border-radius: 5px;
+    text-align: center;
+    top:50%;
+    left:50%;
+    margin-left:-200px;
+    z-index:5;
+}
+
+.popupDialog .dialog{
+    font-size: 14px;
+    color:var(--light)
+}
+
+.popupDialog .dialogBtnContainer{
+    margin:2rem 0 0 0;
+    display: flex;
+    gap:2rem;
+}
+
+.dialogBtnContainer a{
+    font-size: 13px;
+    padding:10px;
+    border-radius: 5px;
+    color: var(--light);
+}
+
+#confirmBtn{
+    background-color: #ac1b02;
+}
+
+#cancelBtn{
+    background-color: #515151;
+}
+
+@media only screen and (max-width:700px){
+    .popupDialog{
+        width:300px;
+        margin-left:-150px;
+    }
+}
+
+/* error banner */
+
+.banner{
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:15px;
+    gap:10px;
+    border-radius:5px;
+}
+
+.banner p{
+    font-size: 13px;
+    font-weight: 600;
+    color:var(--light);
+}
+
+.banner i{
+    font-size: 13px;
+    font-weight: 600;
+    padding:5px;
+    color:var(--light);
+    cursor:pointer;
+}
+
+.errorBanner{
+    background-color: #ac1b02;
+}
+
+.confirmationBanner{
+    background-color:rgb(2, 82, 72);
 }
