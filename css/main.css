@@ -174,9 +174,10 @@ header{
     align-items: center;
 }
 
-.profileContainer div img{
-    height:40px;
-    width:40px;
+.profileImg{
+    max-height:40px;
+    max-width:40px;
+    border-radius: 40px;
 }
 
 .profileContainer div p{
@@ -380,7 +381,7 @@ header{
 
 .errMessage{
     padding:10px;
-    background-color:  #efccbf;
+    background-color:#ac1b02;
     border-radius: 5px;
     margin:10px 0;
     display: none;
@@ -388,7 +389,7 @@ header{
 
 .errMessage p{
     font-size: 12px;
-    color:#FF4500
+    color:var(--light)
 }
 
 .emptyMessage p{
@@ -634,8 +635,13 @@ footer{
     align-items: center;
     justify-content: space-between;
     padding:15px;
+    width:400px;
+    bottom: 15px;
+    left:50%;
+    margin-left:-200px;
     gap:10px;
     border-radius:5px;
+    z-index:5
 }
 
 .banner p{

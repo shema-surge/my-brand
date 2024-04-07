@@ -1,7 +1,5 @@
 const nameValidationErr=document.getElementById("nameValidationErr")
 const nameInput=document.getElementById("nameInput")
-const emailValidationErr=document.getElementById("emailValidationErr")
-const emailInput=document.getElementById("emailInput")
 const profileForm=document.querySelector("#profileForm")
 const profileErrMessage=document.querySelector("#profileErrMessage")
 
@@ -14,21 +12,15 @@ const confirmNewPasswdInput=document.querySelector("#confirmNewPasswdInput")
 const passwdForm=document.querySelector("#passwdForm")
 const passwdErrMessage=document.querySelector("#passwdErrMessage")
 
+const userProfileImg=document.querySelector("#userProfileImg")
+const profileImageInput=document.querySelector("#profileImageInput")
+
 nameInput.addEventListener('keypress',(e)=>{
     nameValidationErr.textContent=validateName(nameInput.value)
 })
 
 nameInput.addEventListener('keyup',(e)=>{
     nameValidationErr.textContent=validateName(nameInput.value)
-})
-
-emailInput.addEventListener('keypress',(e)=>{
-    console.log(emailValidationErr)
-    emailValidationErr.textContent=validateEmail(emailInput.value)
-})
-
-emailInput.addEventListener('keyup',(e)=>{
-    emailValidationErr.textContent=validateEmail(emailInput.value)
 })
 
 currentPasswdInput.addEventListener("keyup",()=>{
@@ -55,14 +47,40 @@ confirmNewPasswdInput.addEventListener('keyup',(e)=>{
     confirmNewPasswdValidationErr.textContent=verifyPasswords(newPasswdInput.value,confirmNewPasswdInput.value)
 })
 
+function loadUser(){
+    axios.get('http://127.0.0.1:4500/users/current',{
+        headers:{
+            'authorization':`Bearer ${token}`
+        }
+    }).then(res=>{
+        nameInput.value=res.data.user.name
+        userProfileImg.src=res.data.user.profileImg
+        userProfileImg.alt=res.data.user.name
+    }).catch(err=>{
+        console.log(err)
+    })
+
+}
+
 
 profileForm.addEventListener("submit",(event)=>{
     event.preventDefault()
-    if(validateName(nameInput.value) || validateEmail(emailInput.value)){
+    if(validateName(nameInput.value)){
         profileErrMessage.style.display="block"
         profileErrMessage.innerHTML="<p>Please fill the form as instructed.</p>"
     }else{
         profileErrMessage.style.display="none"
+        const data=new FormData(profileForm)
+        axios.post('http://127.0.0.1:4500/users/edit',data,{
+            headers:{
+                'Content-Type':'multipart/form-data',
+                'authorization':`Bearer ${token}`
+            }
+        }).then(res=>{
+            console.log(res)
+        }).catch(err=>{
+            console.log(err)
+        })
     }
 })
 
@@ -76,4 +94,5 @@ passwdForm.addEventListener("submit",(event)=>{
     }
 })
 
+loadUser()
 

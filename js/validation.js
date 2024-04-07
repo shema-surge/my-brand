@@ -30,8 +30,22 @@ const verifyPasswords=(passwd,verifyPasswd)=>{
 }
 
 const validateMessage=(messageStr)=>{
-    const messageRegex=/^[A-Za-z0-9\s\d!@#$%^&*]{2,}$/
+    const messageRegex=/^[A-Za-z0-9\s\d!@#$%^&*,]{2,}$/
     if(!messageStr) return 'Message field cannot be empty!'
     if(!messageStr.match(messageRegex)) return 'Please enter a valid message'
+    return ''
+}
+
+const validateSubject=(subjectStr)=>{
+    const subjectRegex=/^[A-Za-z0-9\s\d!@#$%^&*,]{2,}$/
+    if(!subjectStr) return 'subject field cannot be empty!'
+    if(!subjectStr.match(subjectRegex)) return 'Please enter a valid subject'
+    return ''
+}
+
+const validateCode=(codeStr)=>{
+    const codeRegex=/^[1-9]{6}$/
+    if(!codeStr) return 'subject field cannot be empty!'
+    if(!codeStr.match(codeRegex)) return 'Please enter a valid code'
     return ''
 }

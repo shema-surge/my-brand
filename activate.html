@@ -17,30 +17,23 @@
         </div>
     </a>
     <div class="loginContainer">
-        <h1>Log in</h1>
+        <h1>Activate Account</h1>
         <div class="errMessage">
         </div>
         <form class="form">
-            <label for="emailInput">Email</label>
+            
+            <label for="codeInput">Activation Code</label>
             <div class="inputContainer">
-                <input type="email" name="email" id="emailInput" required>
-                <p id="emailValidationErr"></p>
+                <input type="password" name="code" id="codeInput" placeholder="activation code" required>
+                <p id="codeValidationErr"></p>
             </div>
-
-            <label for="passwdInput">Password</label>
-            <div class="inputContainer">
-                <input type="password" name="password" id="passwdInput" required>
-                <p id="passwdValidationErr"></p>
-            </div>
-
-            <a href="./forgotPassword.html">Forgot Password?</a>
-            <button type="button" id="loginBtn" class="btn">Login</button>
-            <a class="signupLink" href="./signup.html">Create Account</a>
+            <button type="button" id="activateBtn" class="btn">activate</button>
+            <a id="resendCodeBtn" href="#">Resend Activation Code</a>
         </form>
     </div>
 </body>
 <script src="https://kit.fontawesome.com/3f2aa35973.js" crossorigin="anonymous"></script>
 <script src="./js/axios.min.js"></script>
 <script src="./js/validation.js"></script>
-<script src="./js/login.js"></script>
+<script src="./js/activate.js"></script>
 </html>

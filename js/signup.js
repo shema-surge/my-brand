@@ -37,30 +37,21 @@ verifyPasswdInput.addEventListener('keyup',(e)=>{
     verifyPasswdValidationErr.textContent=verifyPasswords(passwdInput.value,verifyPasswdInput.value)
 })
 
-signupBtn.addEventListener("click",async()=>{
+signupBtn.addEventListener("click",()=>{
 
     if(validateName(nameInput.value) || validateEmail(emailInput.value) || validatePasswd(passwdInput.value) || verifyPasswords(passwdInput.value,verifyPasswdInput.value)){
         errMessage.style.display="block"
         errMessage.innerHTML="<p>Please fill the form as instructed.</p>"
     }else{
         errMessage.style.display="none"
-        const response=await fetch('http://172.21.126.12:4500/signup',{
-            method:'post',
-            headers:{
-                'Content-Type':'application/json',
-            },
-            body:JSON.stringify({name:nameInput.value,email:emailInput.value,password:passwdInput.value,verifyPassword:verifyPasswdInput.value})
-        })
-        const data=response.json()
-        if(!data){
-            errMessage.style.display="block"
-            errMessage.innerHTML=`<p>Couldn't reach the server, Try again.</p>`
-        }
-        if(response.status!==200){
-            errMessage.style.display="block"
-            errMessage.innerHTML=`<p>${data.message}.</p>`   
-        }else{
+        axios.post('http://127.0.0.1:4500/signup',{name:nameInput.value,email:emailInput.value,password:passwdInput.value,verifyPassword:verifyPasswdInput.value})
+        .then(res=>{
+            console.log(res.data)
             window.location.href="/login.html"
-        }
+        }).catch(err=>{
+            console.log(err)
+            errMessage.style.display="block"
+            errMessage.innerHTML=`<p>${err.message}.</p>`
+        })
     }
 })

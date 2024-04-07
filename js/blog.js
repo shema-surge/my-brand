@@ -1,11 +1,12 @@
 const profileSection=document.querySelector(".profileSection")
 const postContainer=document.querySelector(".postContainer")
 const errMessage=document.querySelector(".errMessage")
+const searchBar=document.querySelector(".searchContainer")
 
 window.addEventListener('DOMContentLoaded',async()=>{
     //render blog posts
     try{
-        const postsResponse=await fetch('http://172.21.126.12:4500/posts/getAllPosts')
+        const postsResponse=await fetch('http://127.0.0.1:4500/posts/getAllPosts')
         const postData=await postsResponse.json()
         if(postsResponse.status!==200) throw new Error(postData.message)
         if(postData.posts) renderBlogPosts(postData.posts)
@@ -14,6 +15,16 @@ window.addEventListener('DOMContentLoaded',async()=>{
         errMessage.style.display="block"
         errMessage.innerHTML=err.message
     }
+})
+
+searchBar.addEventListener('keyup',()=>{
+  axios.post('http://127.0.0.1:4500/posts/searchAllPosts',{keyword:searchBar.value})
+  .then(res=>{
+    console.log(res.data)
+    renderBlogPosts(res.data.posts)
+  }).catch(err=>{
+    console.log(err)
+  })
 })
 
 const renderBlogPosts=(posts)=>{

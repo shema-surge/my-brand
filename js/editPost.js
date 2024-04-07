@@ -14,7 +14,7 @@ const titleInput=document.getElementById("titleInput")
 console.log(mytextarea)
 
 window.addEventListener('DOMContentLoaded',()=>{
-    axios.get(`http://172.21.126.12:4500/posts/${postId}`)
+    axios.get(`http://127.0.0.1:4500/posts/post/${postId}`)
     .then(res=>{
         titleInput.value=res.data.post.title
         document.getElementById("mytextarea").value=res.data.post.content
@@ -32,7 +32,7 @@ document.getElementById("editBtn").addEventListener('click',()=>{
         return
     }
 
-    axios.post(`http://172.21.126.12:4500/posts/editPost/${postId}`,
+    axios.post(`http://127.0.0.1:4500/posts/editPost/${postId}`,
     {
         title:titleInput.value,
         content:content

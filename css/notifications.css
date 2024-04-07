@@ -10,7 +10,7 @@
 
 .notificationContent{
     color:var(--light);
-    font-size: 15px;
+    font-size: 13px;
     width:50%;
 }
 
@@ -22,8 +22,8 @@
 }
 
 .notificationTime{
-    font-size:13px;
-    font-weight: 600;
+    font-size:12px;
+    font-weight:400;
     color:var(--light)
 }
 
@@ -33,7 +33,7 @@
     right:15px;
 }
 
-@media (max-width:700px){
+@media (max-width:900px){
     .notification{
         flex-direction: column;
     }

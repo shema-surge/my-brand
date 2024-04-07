@@ -19,7 +19,7 @@ document.querySelector("#publishBtn").addEventListener("click", async () => {
             return
         }
 
-        const response = await fetch("http://172.21.126.12:4500/posts/newPost", {
+        const response = await fetch("http://127.0.0.1:4500/posts/newPost", {
             method: "post",
             headers: {
                 'Content-Type': 'application/json',

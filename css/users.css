@@ -19,10 +19,6 @@
     background-color: var(--dark);
 }
 
-.userData>img{
-    height: 50px;
-}
-
 .userInfo div{
     display: flex;
     margin:10px 0;

@@ -1,18 +1,19 @@
 function renderUsers(){
     const usersContainer=document.querySelector(".users")
 
-    axios.get('http://172.21.126.12:4500/users/',{
+    axios.get('http://127.0.0.1:4500/users/',{
         headers:{
             'authorization':`Bearer ${token}`
         }
     }).then(res=>{
         console.log(res.data.users)
+        usersContainer.innerHTML=""
         res.data.users.forEach(user => {
             const userDiv=document.createElement('div')
             userDiv.classList.add('user')
             userDiv.innerHTML=`
                 <div class="userData">
-                  <img src="${user.profileImg}" alt="">
+                  <img class="profileImg" src="${user.profileImg}" alt="">
                   <div class="userInfo">
                     <div class="nameContainer">
                       <p>Name:</p>

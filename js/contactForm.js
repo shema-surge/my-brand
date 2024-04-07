@@ -4,6 +4,8 @@ const emailValidationErr=document.getElementById("emailValidationErr")
 const emailInput=document.getElementById("emailInput")
 const messageValidationErr=document.getElementById("messageValidationErr")
 const messageInput=document.getElementById("messageInput")
+const subjectValidationErr=document.getElementById("subjectValidationErr")
+const subjectInput=document.getElementById("subjectInput")
 const form=document.querySelector(".form")
 const errMessage=document.querySelector(".errMessage")
 
@@ -31,12 +33,38 @@ messageInput.addEventListener('keyup',(e)=>{
     messageValidationErr.textContent=validateMessage(messageInput.value)
 })
 
+subjectInput.addEventListener('keypress',(e)=>{
+    subjectValidationErr.textContent=validateSubject(subjectInput.value)
+})
+
+subjectInput.addEventListener('keyup',(e)=>{
+    subjectValidationErr.textContent=validateSubject(subjectInput.value)
+})
+
 form.addEventListener("submit",(event)=>{
     event.preventDefault()
-    if(validateEmail(emailInput.value) || validateName(nameInput.value) || validateMessage(messageInput.value)){
+    if(validateEmail(emailInput.value) || validateName(nameInput.value) || validateMessage(messageInput.value) || validateSubject(subjectInput.value)){
         errMessage.style.display="block"
         errMessage.innerHTML="<p>Please fill the form as instructed.</p>"
     }else{
         errMessage.style.display="none"
+        axios.post('http://127.0.0.1:4500/messages/newMessage',
+        {
+            name:nameInput.value,
+            email:emailInput.value,
+            subject:subjectInput.value,
+            message:messageInput.value
+        }
+        ,{
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        .then(res=>{
+          console.log(res.data)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 })

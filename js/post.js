@@ -18,7 +18,7 @@ const renderBlog = async () => {
     const postId = params.get("pid")
     if (!postId) throw new Error('No post Id Provided')
 
-    const postResponse = await fetch(`http://172.21.126.12:4500/posts/${postId}`, {
+    const postResponse = await fetch(`http://127.0.0.1:4500/posts/post/${postId}`, {
       method: 'get',
       headers: {
         'authorization': `Bearer ${token}`
@@ -44,7 +44,7 @@ const renderBlog = async () => {
         </div>`
 
     document.querySelector("#postLikesBtn").addEventListener('click', () => {
-      axios.get(`http://172.21.126.12:4500/posts/likePost/${postId}`, {
+      axios.get(`http://127.0.0.1:4500/posts/likePost/${postId}`, {
         headers: {
           'authorization': `Bearer ${token}`
         }
@@ -68,7 +68,7 @@ const renderComments = async () => {
     const params = new URLSearchParams(window.location.search)
     const postId = params.get("pid")
     if (!postId) throw new Error('No post Id Provided')
-    const commentsResponse = await fetch(`http://172.21.126.12:4500/comments/${postId}`, {
+    const commentsResponse = await fetch(`http://127.0.0.1:4500/comments/${postId}`, {
       method: 'get',
     })
     const commentsData = await commentsResponse.json()
@@ -78,36 +78,35 @@ const renderComments = async () => {
     commentsContainer.innerHTML = ""
 
 
-    commentsData.comments.forEach(com => {
-      const comment = document.createElement('div')
-      comment.classList.add('comment')
+    commentsData.comments.forEach(comment => {
+      const commentDiv = document.createElement('div')
+      commentDiv.classList.add('comment')
 
-      comment.innerHTML += `
+      commentDiv.innerHTML += `
             <div class="commentTopBar">
             <div class="commentInfo">
               <div class="profile">
-                <img src="${com.author.profileImg}" alt="" />
-                <p>${com.author.name}</p>
+                <img class="profileImg" src="${comment.author.profileImg}" alt="" />
+                <p>${comment.author.name}</p>
               </div>
-              <p class="commentDate">${new Date(com._doc.createdAt).toDateString()}</p>
+              <p class="commentDate">${new Date(comment.createdAt).toDateString()}</p>
             </div>
             <i class="fa-solid fa-ellipsis moreOptionsBtn"></i>
             <div class="commentOptions options">
-              <a href="">Edit</a>
-              <a href="#" onclick="renderDeleteDialog('${com._doc._id}')">Delete</a>
+              <a href="#" onclick="renderDeleteDialog(this,'${comment._id}')">Delete</a>
             </div>
             </div>
             <p class="commentContent">
-            ${com._doc.content}
+            ${comment.content}
             </p>
             <div class="stats">
-              <div>
+              <div id="commentLikes" onclick="handleCommentLikes(this,'${comment._id}')">
                 <i class="fa-regular fa-heart"></i>
-                <p id="commentLikes">${com._doc.likes} likes</p>
+                <p>${comment.likes} likes</p>
               </div>
             </div>
             `
-      commentsContainer.appendChild(comment)
+      commentsContainer.appendChild(commentDiv)
 
     })
 
@@ -146,20 +145,22 @@ const renderComments = async () => {
 }
 
 function handleCommentLikes(element, commentId) {
-  axios.get(`http://172.21.126.12:4500/comments/likeComment/${commentId}`, {
+  console.log(commentId)
+  axios.get(`http://127.0.0.1:4500/comments/likeComment/${commentId}`, {
     headers: {
       'authorization': `Bearer ${token}`
     }
   })
     .then(res => {
-      element.innerText = `${res.data.comment.likes} likes`
+      console.log(res.data)
+      element.children[1].innerText = `${res.data.comment.likes} likes`
     }).catch(err => {
       console.log(err)
     })
 }
 
 function handleCommentDelete(commentId) {
-  axios.delete(`http://172.21.126.12:4500/comments/deleteComment/${commentId}`, {
+  axios.delete(`http://127.0.0.1:4500/comments/deleteComment/${commentId}`, {
     headers: {
       'authorization': `Bearer ${token}`
     }
@@ -198,7 +199,7 @@ commentBtn.addEventListener("click", async () => {
     const params = new URLSearchParams(window.location.search)
     const postId = params.get("pid")
     if (!postId) throw new Error('No post Id Provided')
-    const commentResponse = await fetch(`http://172.21.126.12:4500/comments/newComment/${postId}`, {
+    const commentResponse = await fetch(`http://127.0.0.1:4500/comments/newComment/${postId}`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

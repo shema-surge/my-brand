@@ -28,28 +28,22 @@ loginBtn.addEventListener("click",async()=>{
         errMessage.innerHTML="<p>Please fill the form as instructed.</p>"
     }else{
         errMessage.style.display="none"
-        const response=await fetch("http://172.21.126.12:4500/login",{
-            method:"post",
-            headers:{
-                'Content-Type':'application/json',
-            },
-            body:JSON.stringify({email:emailInput.value,password:passwdInput.value})
+        axios.post("http://127.0.0.1:4500/login",{email:emailInput.value,password:passwdInput.value})
+        .then(res=>{
+            console.log(res.data)
+            document.cookie=`token=${res.data.token}`
+            if(res.data.user.status==="inactive"){
+                window.location.href='./activate.html'
+                return
+            }
+            window.location.href="/dashboard.html"
+        }).catch(err=>{
+            console.log(err)
+            errMessage.style.display="block"
+            errMessage.innerHTML=`<p>${err.message}</p>`
         })
-        const data=await response.json()
-        if(!data){
-            errMessage.style.display="block"
-            errMessage.innerHTML=`<p>Couldn't reach server</p>`
-            return
-        }
 
-        if(response.status!==200){
-            errMessage.style.display="block"
-            errMessage.innerHTML=`<p>${data.message}</p>`
-            return
-        }
 
-        document.cookie=`token=${data.token}`
-        window.location.href="/dashboard.html"
     }
 })
 

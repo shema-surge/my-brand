@@ -40,17 +40,7 @@
         </li>
       </ul>
     </nav>
-    <div id="mobile-screen-profile" class="profileContainer">
-      <div>
-        <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-        <p>Shema Serge</p>
-      </div>
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
-    <div class="mobileProfileOptions">
-      <a href="./dashboard.html">Dashboard</a>
-      <a href="./blog.html">Log out</a>
-    </div>
+
   </div>
   <header>
     <nav class="navigation">
@@ -82,56 +72,11 @@
       <div></div>
       <div></div>
     </div>
-    <div class="profileOptions">
-      <a href="#">Dashboard</a>
-      <a href="#">Logout</a>
-    </div>
-    <div id="wide-screen-profile" class="profileContainer">
-      <div>
-        <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-        <p>Shema Serge</p>
-      </div>
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
   </header>
   <main>
     <select class="mobileSectionContainer" name="dashpage" id="dashNavigation">
-      <option value="Posts">Posts (14)</option>
-      <option value="Messages">Messages (121)</option>
-      <option value="Users">Users (234)</option>
-      <option value="Notifications">Notifications (121)</option>
-      <option value="Account" selected>Account</option>
     </select>
     <div class="sectionContainer">
-      <a href="./dashboard.html">
-        <div class="section">
-          <p class="sectionName">Posts</p>
-          <p class="sectionCount">121</p>
-        </div>
-      </a>
-      <a href="./dashmessages.html">
-        <div class="section">
-          <p class="sectionName">Messages</p>
-          <p class="sectionCount">142</p>
-        </div>
-      </a>
-      <a href="./dashusers.html">
-        <div class="section">
-          <p class="sectionName">Users</p>
-          <p class="sectionCount">123</p>
-        </div>
-      </a>
-      <a href="./dashnotifications.html">
-        <div class="section">
-          <p class="sectionName">Notifications</p>
-          <p class="sectionCount">12</p>
-        </div>
-      </a>
-      <a href="./dashaccount.html">
-        <div class="section active">
-          <p class="sectionName">Account</p>
-        </div>
-      </a>
     </div>
     <div class="mainContent">
       <div class="profileInfoContainer">
@@ -143,16 +88,14 @@
             <input type="text" name="name" id="nameInput" placeholder="Shema Serge" required/>
             <p id="nameValidationErr"></p>
           </div>
-          <label for="emailInput">Email:</label>
-          <div class="inputContainer">
-            <input type="email" name="email" id="emailInput" placeholder="shemaserge@gmail.com" required/>
-            <p id="emailValidationErr"></p>
-          </div>
-          <label for="User-Profile-PNG-Image">Profile Image:</label>
+
+          <label for="profileImg">Profile Image:</label>
+
           <div class="changeProfileImage">
-            <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-            <input type="file" name="image" id="image" />
+            <img id="userProfileImg" class="profileImg" src="" alt="" />
+            <input type="file" name="profileImg" id="profileImageInput" />
           </div>
+
           <button class="btn" type="submit">Save Profile Information</button>
         </form>
         <hr class="separator">
@@ -185,8 +128,9 @@
   </main>
 </body>
 <script src="https://kit.fontawesome.com/3f2aa35973.js" crossorigin="anonymous"></script>
+<script src="./js/axios.min.js"></script>
 <script src="./js/main.js"></script>
-<script src="./js/popups.js"></script>
+<script src="./js/sideBar.js"></script>
 <script src="./js/navigation.js"></script>
 <script src="./js/validation.js"></script>
 <script src="./js/accountForm.js"></script>

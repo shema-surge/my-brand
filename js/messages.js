@@ -2,7 +2,7 @@ const messagesContainer = document.querySelector(".messages")
 
 const renderMessages = () => {
     console.log("Hello")
-    axios.get('http://172.21.126.12:4500/messages', {
+    axios.get('http://127.0.0.1:4500/messages', {
         headers: {
             'authorization': `Bearer ${token}`
         }
@@ -67,7 +67,7 @@ const renderMessages = () => {
 function expandMessage(mid) {
     const messagePopup = document.querySelector(".messagePopup")
 
-    axios.get(`http://172.21.126.12:4500/messages/${mid}`, {
+    axios.get(`http://127.0.0.1:4500/messages/${mid}`, {
         headers: {
             'authorization': `Bearer ${token}`
         }
@@ -110,12 +110,14 @@ function expandMessage(mid) {
 
 function replyMessage(mid) {
     const reply = document.querySelector("#replyTextArea").value
+
     if (!reply) {
         console.log("Empty reply")
         return
     }
-    axios.post(`http://172.21.126.12:4500/messages/deleteMessage/${mid}`, { reply: reply }, {
+    axios.post(`http://127.0.0.1:4500/messages/reply/${mid}`, { reply: reply }, {
         headers: {
+            'Content-Type':'application/json',
             'authorization': `Bearer ${token}`
         }
     }).then(res => {
@@ -146,7 +148,7 @@ function renderDeleteDialog(mid){
   }
 
 function deleteMessage(mid) {
-    axios.delete(`http://172.21.126.12:4500/messages/deleteMessage/${mid}`, {
+    axios.delete(`http://127.0.0.1:4500/messages/deleteMessage/${mid}`, {
         headers: {
             'authorization': `Bearer ${token}`
         }

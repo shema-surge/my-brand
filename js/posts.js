@@ -1,16 +1,29 @@
-const renderPosts=()=>{
-    const postContainer=document.querySelector(".posts")
-    postContainer.innerHTML=''
-    axios.get(`http://172.21.126.12:4500/posts`,{
-        headers:{
-            'authorization':`Bearer ${token}`
-        }
-    })
-    .then(res=>{
-        res.data.posts.forEach(post=>{
-            const postDiv=document.createElement('div')
-            postDiv.classList.add('post')
-            postDiv.innerHTML+=`
+const searchBar=document.querySelector(".searchContainer")
+
+searchBar.addEventListener('keyup',()=>{
+  console.log(searchBar.value)
+  axios.post('http://127.0.0.1:4500/posts/searchUserPosts/',
+  {keyword:searchBar.value},
+  {
+    headers: {
+      'authorization': `Bearer ${token}`
+    }
+  }).then(res=>{
+    console.log(res.data)
+    renderPosts(res.data.posts)
+  }).catch(err=>{
+    console.log(err)
+  })
+})
+
+const renderPosts = (posts) => {
+  const postContainer = document.querySelector(".posts")
+  postContainer.innerHTML = ''
+  if(posts.length===0) return
+  posts.forEach(post => {
+    const postDiv = document.createElement('div')
+    postDiv.classList.add('post')
+    postDiv.innerHTML += `
             <div class="postData">
               <p class="postTitle">${post.title}</p>
               <p class="postDate">Published: ${new Date(post.createdAt).toLocaleString()}</p>
@@ -37,63 +50,74 @@ const renderPosts=()=>{
               </div>
             </div>
             `
-            postContainer.appendChild(postDiv)
-        })
+    postContainer.appendChild(postDiv)
+  })
 
-        const moreOptionsBtn = document.querySelectorAll(".moreOptionsBtn")
-        let currentActive = null
-    
-        moreOptionsBtn.forEach(btn => {
-          btn.addEventListener('click', (event) => {
-            let optionMenu = btn.nextElementSibling
-            if (optionMenu.style.display === "flex") {
-              currentActive = null
-              optionMenu.style.display = "none"
-              return
-            }
-            if (currentActive) currentActive.style.display = "none"
-            optionMenu.style.display = "flex"
-            currentActive = optionMenu
-          })
-        })
-    
-        document.addEventListener('click', (event) => {
-          if (currentActive && currentActive.previousElementSibling != event.target) {
-            currentActive.style.display = "none"
-          }
-        })
+  const moreOptionsBtn = document.querySelectorAll(".moreOptionsBtn")
+  let currentActive = null
+
+  moreOptionsBtn.forEach(btn => {
+    btn.addEventListener('click', (event) => {
+      let optionMenu = btn.nextElementSibling
+      if (optionMenu.style.display === "flex") {
+        currentActive = null
+        optionMenu.style.display = "none"
+        return
+      }
+      if (currentActive) currentActive.style.display = "none"
+      optionMenu.style.display = "flex"
+      currentActive = optionMenu
     })
-    .catch(err=>console.log(err))
+  })
+
+  document.addEventListener('click', (event) => {
+    if (currentActive && currentActive.previousElementSibling != event.target) {
+      currentActive.style.display = "none"
+    }
+  })
 }
 
-function handlePostDelete(postId) {
-    axios.delete(`http://172.21.126.12:4500/posts/deletePost/${postId}`, {
-      headers: {
-        'authorization': `Bearer ${token}`
-      }
-    })
-      .then((res) => {
-        console.log(res.status)
-        renderPosts()
-      }).catch(err => {
-        console.log(err)
-      })
-  }
-  
-  function renderDeleteDialog(id){
-    const popup=document.querySelector(".popupDialog")
-    const confirmBtn=document.querySelector("#confirmBtn")
-    const cancelBtn=document.querySelector("#cancelBtn")
-    const dialog=document.querySelector(".dialog")
-    popup.style.display="flex"
-    dialog.innerText="Are you sure you want to delete this post?"
-    confirmBtn.addEventListener('click',()=>{
-      handlePostDelete(id)
-      popup.style.display="none"
-    })
-    cancelBtn.addEventListener('click',()=>{
-      popup.style.display="none"
-    })
-  }
 
-renderPosts()
+function handlePostDelete(postId) {
+  axios.delete(`http://127.0.0.1:4500/posts/deletePost/${postId}`, {
+    headers: {
+      'authorization': `Bearer ${token}`
+    }
+  })
+    .then((res) => {
+      loadPosts()
+    }).catch(err => {
+      console.log(err)
+    })
+}
+
+function renderDeleteDialog(id) {
+  const popup = document.querySelector(".popupDialog")
+  const confirmBtn = document.querySelector("#confirmBtn")
+  const cancelBtn = document.querySelector("#cancelBtn")
+  const dialog = document.querySelector(".dialog")
+  popup.style.display = "flex"
+  dialog.innerText = "Are you sure you want to delete this post?"
+  confirmBtn.addEventListener('click', () => {
+    handlePostDelete(id)
+    popup.style.display = "none"
+  })
+  cancelBtn.addEventListener('click', () => {
+    popup.style.display = "none"
+  })
+}
+
+function loadPosts() {
+  axios.get(`http://127.0.0.1:4500/posts`, {
+    headers: {
+      'authorization': `Bearer ${token}`
+    }
+  }).then(res => {
+    console.log(res.data)
+    renderPosts(res.data.posts)
+  }).catch(err => {
+    console.log(err)
+  })
+}
+
+loadPosts()

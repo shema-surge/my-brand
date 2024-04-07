@@ -46,11 +46,12 @@ try{
     if (!token) throw new Error('Invalid token')
 }catch(err){
     console.log(err)
+    if(window.location.href!=="/") window.location.href="./login.html"
 }
 
 function loadProfile(){
 
-    axios.get('http://172.21.126.12:4500/users/current',{
+    axios.get('http://127.0.0.1:4500/users/current',{
     headers:{
         'authorization':`Bearer ${token}`
     }})
@@ -62,7 +63,7 @@ function loadProfile(){
         wideScreenProfile.classList.add('profileContainer')
         wideScreenProfile.innerHTML=`
         <div>
-            <img src="${res.data.user.profileImg}" alt="" />
+            <img class="profileImg" src="${res.data.user.profileImg}" alt="" />
             <p>${res.data.user.name}</p>
         </div>
         <i class="fa-solid fa-chevron-down"></i>
@@ -72,7 +73,7 @@ function loadProfile(){
         mobileScreenProfile.classList.add('profileContainer')
         mobileScreenProfile.innerHTML=`
         <div>
-            <img src="${res.data.user.profileImg}" alt="" />
+            <img class="profileImg" src="${res.data.user.profileImg}" alt="" />
             <p>${res.data.user.name}</p>
         </div>
         <i class="fa-solid fa-chevron-down"></i>
@@ -128,12 +129,30 @@ function loadProfile(){
         mobileHeader.appendChild(mobileProfileOptions)
     })
     .catch(err=>{
+        console.log(err)
+
         const loginBtn=document.createElement('a')
         loginBtn.classList.add('btn')
-        loginBtn.setAttribute('href','/login.html')
+        loginBtn.setAttribute("id","loginBtn")
+        loginBtn.setAttribute("href","./login.html")
         loginBtn.innerText='Login'
+
+        const mobileLoginBtn=document.createElement('a')
+        mobileLoginBtn.classList.add('btn')
+        mobileLoginBtn.setAttribute("id","mobileLoginBtn")
+        mobileLoginBtn.setAttribute("href","./login.html")
+        mobileLoginBtn.innerText='Login'
+
         header.appendChild(loginBtn)
-        mobileHeader.appendChild(loginBtn)
+        mobileHeader.appendChild(mobileLoginBtn)
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 700) {
+                loginBtn.style.display="none"
+            }else{
+                loginBtn.style.display="block"
+            }
+        })
     })
 }
 

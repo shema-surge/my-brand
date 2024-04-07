@@ -42,17 +42,6 @@
           </li>
         </ul>
       </nav>
-      <div id="mobile-screen-profile" class="profileContainer">
-        <div>
-          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-          <p>Shema Serge</p>
-        </div>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
-      <div class="mobileProfileOptions">
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./blog.html">Log out</a>
-      </div>
     </div>
     <header>
       <nav class="navigation">
@@ -88,56 +77,11 @@
         <div></div>
         <div></div>
       </div>
-      <div class="profileOptions">
-        <a href="#">Dashboard</a>
-        <a href="#">Logout</a>
-      </div>
-      <div id="wide-screen-profile" class="profileContainer">
-        <div>
-          <img src="./images/User-Profile-PNG-Image 1.png" alt="" />
-          <p>Shema Serge</p>
-        </div>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
     </header>
     <main>
       <select class="mobileSectionContainer" name="dashpage" id="dashNavigation">
-        <option value="Posts">Posts (14)</option>
-        <option value="Messages">Messages (121)</option>
-        <option value="Users" selected>Users (234)</option>
-        <option value="Notifications">Notifications (121)</option>
-        <option value="Account">Account</option>
       </select>
       <div class="sectionContainer">
-        <a href="./dashboard.html">
-          <div class="section">
-            <p class="sectionName">Posts</p>
-            <p class="sectionCount">121</p>
-          </div>
-        </a>
-        <a href="./dashmessages.html">
-          <div class="section">
-            <p class="sectionName">Messages</p>
-            <p class="sectionCount">142</p>
-          </div>
-        </a>
-        <a href="./dashusers.html">
-          <div class="section active">
-            <p class="sectionName">Users</p>
-            <p class="sectionCount">123</p>
-          </div>
-        </a>
-        <a href="./dashnotifications.html">
-          <div class="section">
-            <p class="sectionName">Notifications</p>
-            <p class="sectionCount">12</p>
-          </div>
-        </a>
-        <a href="./dashaccount.html">
-          <div class="section">
-            <p class="sectionName">Account</p>
-          </div>
-        </a>
       </div>
       <div class="controlsContainer">
         <input type="text" class="searchContainer" placeholder="Search posts" />
@@ -156,6 +100,13 @@
         </div>
       </div>
     </main>
+    <div class="popupDialog">
+      <p class="dialog">Hello</p>
+      <div class="dialogBtnContainer">
+        <a id="confirmBtn" href="#">Confirm</a>
+        <a id="cancelBtn" href="#">Cancel</a>
+      </div>
+    </div>
   </body>
   <script
     src="https://kit.fontawesome.com/3f2aa35973.js"
@@ -163,6 +114,7 @@
   ></script>
   <script src="./js/axios.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/sideBar.js"></script>
   <script src="./js/navigation.js"></script>
   <script src="./js/users.js"></script>
 </html>
